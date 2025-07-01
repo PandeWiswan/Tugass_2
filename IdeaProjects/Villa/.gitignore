@@ -1,0 +1,10 @@
+# Ignore all .class files
+*.class
+
+# Ignore build folders
+/build/
+/out/
+/target/
+
+/# Ignore IDE folders
+.idea/
