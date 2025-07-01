@@ -4,23 +4,22 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 
 public class Response {
-    private PrintWriter writer;
+    private final PrintWriter out;
     private int status = 200;
 
-    public Response(OutputStream out) {
-        writer = new PrintWriter(out);
+    public Response(OutputStream outputStream) {
+        this.out = new PrintWriter(outputStream, true);
     }
 
-    public void setStatus(int code) {
-        this.status = code;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public void send(String body) {
-        writer.print("HTTP/1.1 " + status + " \r\n");
-        writer.print("Content-Type: application/json\r\n");
-        writer.print("Content-Length: " + body.length() + "\r\n");
-        writer.print("\r\n");
-        writer.print(body);
-        writer.flush();
+        out.println("HTTP/1.1 " + status + " OK");
+        out.println("Content-Type: application/json");
+        out.println("Content-Length: " + body.length());
+        out.println();
+        out.println(body);
     }
 }

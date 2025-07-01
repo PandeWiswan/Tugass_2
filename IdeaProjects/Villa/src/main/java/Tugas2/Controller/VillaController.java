@@ -3,49 +3,68 @@ package Tugas2.Controller;
 import Tugas2.Request;
 import Tugas2.Response;
 import Tugas2.Service.VillaService;
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 
 public class VillaController {
-    private VillaService service = new VillaService();
+    private final VillaService service = new VillaService();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     public void getAll(Request req, Response res) {
-        List<?> list = service.getAll();
-        res.send(service.toJson(list));
+        try {
+            String json = objectMapper.writeValueAsString(service.getAll());
+            res.send(json);
+        } catch (Exception e) {
+            res.setStatus(500);
+            res.send("{\"error\":\"Failed to fetch villas\"}");
+        }
     }
 
     public void getById(Request req, Response res) {
-        int id = service.extractId(req.getPath());
-        Object villa = service.getById(id);
-        if (villa != null) res.send(service.toJson(villa));
-        else {
-            res.setStatus(404);
-            res.send("{\"error\":\"Villa not found\"}");
+        try {
+            String[] parts = req.getPath().split("/");
+            int id = Integer.parseInt(parts[2]);
+            String json = objectMapper.writeValueAsString(service.getById(id));
+            res.send(json);
+        } catch (Exception e) {
+            res.setStatus(500);
+            res.send("{\"error\":\"Failed to fetch villa by ID\"}");
         }
     }
 
     public void create(Request req, Response res) {
-        Object created = service.create(req.getBody());
-        res.setStatus(201);
-        res.send(service.toJson(created));
+        try {
+            Map<String, Object> body = objectMapper.readValue(req.getBody(), Map.class);
+            String json = objectMapper.writeValueAsString(service.create(body));
+            res.send(json);
+        } catch (Exception e) {
+            res.setStatus(500);
+            res.send("{\"error\":\"Failed to create villa\"}");
+        }
     }
 
     public void update(Request req, Response res) {
-        int id = service.extractId(req.getPath());
-        Object updated = service.update(id, req.getBody());
-        if (updated != null) res.send(service.toJson(updated));
-        else {
-            res.setStatus(404);
-            res.send("{\"error\":\"Villa not found\"}");
+        try {
+            String[] parts = req.getPath().split("/");
+            int id = Integer.parseInt(parts[2]);
+            Map<String, Object> body = objectMapper.readValue(req.getBody(), Map.class);
+            String json = objectMapper.writeValueAsString(service.update(id, body));
+            res.send(json);
+        } catch (Exception e) {
+            res.setStatus(500);
+            res.send("{\"error\":\"Failed to update villa\"}");
         }
     }
 
     public void delete(Request req, Response res) {
-        int id = service.extractId(req.getPath());
-        boolean ok = service.delete(id);
-        if (ok) res.send("{\"message\":\"Deleted\"}");
-        else {
-            res.setStatus(404);
-            res.send("{\"error\":\"Villa not found\"}");
+        try {
+            String[] parts = req.getPath().split("/");
+            int id = Integer.parseInt(parts[2]);
+            String json = objectMapper.writeValueAsString(service.delete(id));
+            res.send(json);
+        } catch (Exception e) {
+            res.setStatus(500);
+            res.send("{\"error\":\"Failed to delete villa\"}");
         }
     }
 }

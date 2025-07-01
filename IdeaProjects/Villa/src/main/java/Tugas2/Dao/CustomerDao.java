@@ -1,35 +1,105 @@
 package Tugas2.Dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 public class CustomerDao {
-    private static List<String> storage = new ArrayList<>();
+    private final String url = "jdbc:sqlite:./Villa.db";
 
-    public List<String> findAll() { return storage; }
-
-    public String findById(int id) {
-        return (id > 0 && id <= storage.size()) ? storage.get(id - 1) : null;
+    private Connection connect() throws SQLException {
+        return DriverManager.getConnection(url);
     }
 
-    public String insert(String json) {
-        storage.add(json);
-        return json;
-    }
+    public List<Map<String, Object>> getAll() {
+        List<Map<String, Object>> list = new ArrayList<>();
+        String sql = "SELECT * FROM customers";
 
-    public String update(int id, String json) {
-        if (id > 0 && id <= storage.size()) {
-            storage.set(id - 1, json);
-            return json;
+        try (Connection conn = connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                row.put("id", rs.getInt("id"));
+                row.put("name", rs.getString("name"));
+                row.put("email", rs.getString("email"));
+                row.put("phone", rs.getString("phone"));
+                list.add(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return null;
+
+        return list;
     }
 
-    public boolean delete(int id) {
-        if (id > 0 && id <= storage.size()) {
-            storage.remove(id - 1);
-            return true;
+    public Map<String, Object> getById(int id) {
+        String sql = "SELECT * FROM customers WHERE id = ?";
+        Map<String, Object> customer = new HashMap<>();
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                customer.put("id", rs.getInt("id"));
+                customer.put("name", rs.getString("name"));
+                customer.put("email", rs.getString("email"));
+                customer.put("phone", rs.getString("phone"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return false;
+
+        return customer;
+    }
+
+    public void create(Map<String, Object> data) {
+        String sql = "INSERT INTO customers(name, email, phone) VALUES(?, ?, ?)";
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, (String) data.get("name"));
+            pstmt.setString(2, (String) data.get("email"));
+            pstmt.setString(3, (String) data.get("phone"));
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(int id, Map<String, Object> data) {
+        String sql = "UPDATE customers SET name = ?, email = ?, phone = ? WHERE id = ?";
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, (String) data.get("name"));
+            pstmt.setString(2, (String) data.get("email"));
+            pstmt.setString(3, (String) data.get("phone"));
+            pstmt.setInt(4, id);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void delete(int id) {
+        String sql = "DELETE FROM customers WHERE id = ?";
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

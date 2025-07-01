@@ -2,26 +2,32 @@ package Tugas2.Service;
 
 import Tugas2.Dao.CustomerDao;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerService {
-    private CustomerDao dao = new CustomerDao();
+    private final CustomerDao dao = new CustomerDao();
 
-    public List<String> getAll() { return dao.findAll(); }
-
-    public String getById(int id) { return dao.findById(id); }
-
-    public String create(String json) { return dao.insert(json); }
-
-    public String update(int id, String json) { return dao.update(id, json); }
-
-    public boolean delete(int id) { return dao.delete(id); }
-
-    public int extractId(String path) {
-        String[] parts = path.split("/");
-        return Integer.parseInt(parts[2]);
+    public List<Map<String, Object>> getAll() {
+        return dao.getAll();
     }
 
-    public String toJson(Object obj) {
-        return obj.toString();
+    public Map<String, Object> getById(int id) {
+        return dao.getById(id);
+    }
+
+    public Map<String, Object> create(Map<String, Object> data) {
+        dao.create(data);
+        return data;
+    }
+
+    public Map<String, Object> update(int id, Map<String, Object> data) {
+        dao.update(id, data);
+        return dao.getById(id);
+    }
+
+    public Map<String, Object> delete(int id) {
+        Map<String, Object> deleted = dao.getById(id);
+        dao.delete(id);
+        return deleted;
     }
 }

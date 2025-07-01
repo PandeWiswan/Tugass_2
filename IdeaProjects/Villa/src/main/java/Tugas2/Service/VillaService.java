@@ -2,34 +2,32 @@ package Tugas2.Service;
 
 import Tugas2.Dao.VillaDao;
 import java.util.List;
+import java.util.Map;
 
 public class VillaService {
-    private VillaDao dao = new VillaDao();
+    private final VillaDao dao = new VillaDao();
 
-    public List<?> getAll() { return dao.findAll(); }
-
-    public Object getById(int id) { return dao.findById(id); }
-
-    public Object create(String json) {
-        // parse JSON ke objek
-        return dao.insert(json);
+    public List<Map<String, Object>> getAll() {
+        return dao.getAll();
     }
 
-    public Object update(int id, String json) {
-        return dao.update(id, json);
+    public Map<String, Object> getById(int id) {
+        return dao.getById(id);
     }
 
-    public boolean delete(int id) {
-        return dao.delete(id);
+    public Map<String, Object> create(Map<String, Object> data) {
+        dao.create(data);
+        return data;
     }
 
-    public int extractId(String path) {
-        String[] parts = path.split("/");
-        return Integer.parseInt(parts[2]);
+    public Map<String, Object> update(int id, Map<String, Object> data) {
+        dao.update(id, data);
+        return dao.getById(id);
     }
 
-    public String toJson(Object obj) {
-        // bisa gunakan library simple seperti Gson/Jackson
-        return obj.toString();
+    public Map<String, Object> delete(int id) {
+        Map<String, Object> deleted = dao.getById(id);
+        dao.delete(id);
+        return deleted;
     }
 }
