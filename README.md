@@ -939,7 +939,7 @@ Ketika melakukan POST untuk membuat data entitas baru terdapat response yang dit
 
 Jika ketika saat melakukan POST untuk mengubah data entitas bau akan tetapi salah dalam memasukkan atau tidak sesuai dengan entitas maka akan menampilkan response error dalam bentuk json seperti dibawah ini 
 
-![Screenshot 2025-07-04 203837](https://github.com/user-attachments/assets/8a01a1d6-8e28-4dde-9eb8-ec698b4ba280)
+![Screenshot 2025-07-04 203926](https://github.com/user-attachments/assets/b558997f-d79f-41c1-9acd-8b26818fbe95)
 
 ## PUT response dan error response
 Ketika saat melakukan PUT untuk mengubah data dari entitas harus menyertakan detail seperti villas/id untuk dapat mengubah suatu data dari entitas yang ingin di ubah dan jika berhasil dijalankan akan menampilkan response seperti gambar dibawah
