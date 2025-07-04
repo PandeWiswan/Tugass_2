@@ -53,6 +53,13 @@ public class Router {
         register("POST", "/vouchers", new VoucherController()::create);
         register("PUT", "/vouchers/:id", new VoucherController()::update);
         register("DELETE", "/vouchers/:id", new VoucherController()::delete);
+
+        register("GET", "/reviews", new ReviewController()::getAll);
+        register("GET", "/reviews/:id", new ReviewController()::getByBookingId);
+        register("POST", "/reviews", new ReviewController()::create);
+        register("PUT", "/reviews/:id", new ReviewController()::update);
+        register("DELETE", "/reviews/:id", new ReviewController()::delete);
+
     }
 
     public void handle(Request req, Response res) {
