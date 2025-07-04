@@ -31,9 +31,28 @@ public class Router {
         register("DELETE", "/villas/:id", new VillaController()::delete);
 
         register("GET", "/rooms", new RoomController()::getAll);
-        register("GET", "/customers", new CustomerController()::getAll);
+        register("GET", "/rooms/:id", new RoomController()::getById);
+        register("POST", "/rooms", new RoomController()::create);
+        register("PUT", "/rooms/:id", new RoomController()::update);
+        register("DELETE", "/rooms/:id", new RoomController()::delete);
+
         register("GET", "/bookings", new BookingController()::getAll);
+        register("GET", "/bookings/:id", new BookingController()::getById);
+        register("POST", "/bookings", new BookingController()::create);
+        register("PUT", "/bookings/:id", new BookingController()::update);
+        register("DELETE", "/bookings/:id", new BookingController()::delete);
+
+        register("GET", "/customers", new CustomerController()::getAll);
+        register("GET", "/customers/:id", new CustomerController()::getById);
+        register("POST", "/customers", new CustomerController()::create);
+        register("PUT", "/customers/:id", new CustomerController()::update);
+        register("DELETE", "/customers/:id", new CustomerController()::delete);
+
         register("GET", "/vouchers", new VoucherController()::getAll);
+        register("GET", "/vouchers/:id", new VoucherController()::getById);
+        register("POST", "/vouchers", new VoucherController()::create);
+        register("PUT", "/vouchers/:id", new VoucherController()::update);
+        register("DELETE", "/vouchers/:id", new VoucherController()::delete);
     }
 
     public void handle(Request req, Response res) {
