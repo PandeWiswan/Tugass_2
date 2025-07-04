@@ -928,4 +928,15 @@ Fungsi GET reviews/id ini bertujuan untuk menampilkan reviewer yang terdaftar da
     }
 ![WhatsApp Image 2025-07-04 at 17 02 25](https://github.com/user-attachments/assets/051b9b77-5288-4832-957d-7d848a181faa)
 
+## GET error response
+Ketika saat melakukan GET entitas yang tidak terdapat pada database, maka akan menampilkan pesan error dalam format json seperti gambar dibawah ini
 
+![Screenshot 2025-07-04 202813](https://github.com/user-attachments/assets/78ba178c-0f6c-449d-a37f-a8b4ef536c30)
+
+## POST response dan error response
+Ketika melakukan POST untuk membuat data entitas baru terdapat response yang ditampilkan jika berhasil untuk dijalankan seperti gambar dibawah ini
+![Screenshot 2025-07-04 203837](https://github.com/user-attachments/assets/a2a2f460-cb69-4e10-bb54-742fa86d03bf)
+
+Jika ketika saat melakukan POST untuk mengubah data entitas bau akan tetapi salah dalam memasukkan atau tidak sesuai dengan entitas maka akan menampilkan response error dalam bentuk json seperti dibawah ini 
+
+![Screenshot 2025-07-04 203837](https://github.com/user-attachments/assets/8a01a1d6-8e28-4dde-9eb8-ec698b4ba280)
