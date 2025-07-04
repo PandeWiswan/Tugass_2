@@ -2,11 +2,16 @@ package Tugas2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Request {
     private String method;
     private String path;
     private String body = "";
+    private Map<String, String> queryParams = new HashMap<>();
 
     public static Request parse(BufferedReader in) throws IOException {
         Request req = new Request();
@@ -17,7 +22,17 @@ public class Request {
         String[] requestLine = line.split(" ");
         if (requestLine.length >= 2) {
             req.method = requestLine[0];
-            req.path = requestLine[1];
+
+            // Pisahkan path dan query string
+            String fullPath = requestLine[1];
+            int queryIndex = fullPath.indexOf("?");
+            if (queryIndex != -1) {
+                req.path = fullPath.substring(0, queryIndex);
+                String queryString = fullPath.substring(queryIndex + 1);
+                req.queryParams = parseQueryParams(queryString);
+            } else {
+                req.path = fullPath;
+            }
         }
 
         // Skip headers
@@ -33,6 +48,22 @@ public class Request {
         return req;
     }
 
+    private static Map<String, String> parseQueryParams(String query) {
+        Map<String, String> result = new HashMap<>();
+        if (query == null || query.isEmpty()) return result;
+
+        String[] pairs = query.split("&");
+        for (String pair : pairs) {
+            String[] kv = pair.split("=", 2);
+            if (kv.length == 2) {
+                String key = URLDecoder.decode(kv[0], StandardCharsets.UTF_8);
+                String value = URLDecoder.decode(kv[1], StandardCharsets.UTF_8);
+                result.put(key, value);
+            }
+        }
+        return result;
+    }
+
     public String getMethod() {
         return method;
     }
@@ -43,5 +74,13 @@ public class Request {
 
     public String getBody() {
         return body;
+    }
+
+    public String getQueryParam(String key) {
+        return queryParams.get(key);
+    }
+
+    public Map<String, String> getAllQueryParams() {
+        return queryParams;
     }
 }
