@@ -940,3 +940,17 @@ Ketika melakukan POST untuk membuat data entitas baru terdapat response yang dit
 Jika ketika saat melakukan POST untuk mengubah data entitas bau akan tetapi salah dalam memasukkan atau tidak sesuai dengan entitas maka akan menampilkan response error dalam bentuk json seperti dibawah ini 
 
 ![Screenshot 2025-07-04 203837](https://github.com/user-attachments/assets/8a01a1d6-8e28-4dde-9eb8-ec698b4ba280)
+
+## PUT response dan error response
+Ketika saat melakukan PUT untuk mengubah data dari entitas harus menyertakan detail seperti villas/id untuk dapat mengubah suatu data dari entitas yang ingin di ubah dan jika berhasil dijalankan akan menampilkan response seperti gambar dibawah
+
+![Screenshot 2025-07-04 204154](https://github.com/user-attachments/assets/dc200a76-387b-4b2a-8533-e74dd9ef9529)
+
+Akan tetapi ketika ingin PUT untuk mengubah data dari entitas tetapi data atau entitas yang ingin diubah tidak ada pada database maka akan menampilkan error responnse seperti gambar dibawah ini
+
+![Screenshot 2025-07-04 210104](https://github.com/user-attachments/assets/88e9d837-6d45-4108-8e47-5ad48ed137c3)
+
+## DELETE response
+DELETE pada postman bertujuan untuk menghapus data dari entitas, jika dijalankan akan menampilkan response seperti gambar dibawah ini
+
+![Screenshot 2025-07-04 204528](https://github.com/user-attachments/assets/4aa72f14-92b9-4153-94d1-9c2b7c4a9d28)
