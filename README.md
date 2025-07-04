@@ -469,3 +469,153 @@ Berikut adalah Tampilan Request dari Postman beserta Penjelasannya
         "email": "citra@example.com"
     }
 ![WhatsApp Image 2025-07-04 at 14 20 27](https://github.com/user-attachments/assets/53e750b8-6238-42f3-bde3-ff92d734bceb)
+[
+    {
+        "bed_size": "queen",
+        "quantity": 5,
+        "has_desk": 1,
+        "has_ac": 1,
+        "has_tv": 1,
+        "has_shower": 1,
+        "has_fridge": 1,
+        "capacity": 2,
+        "price": 750000,
+        "name": "Deluxe Room",
+        "id": 1,
+        "has_wifi": 1,
+        "villa": 1,
+        "has_hotwater": 1
+    },
+    {
+        "bed_size": "double",
+        "quantity": 10,
+        "has_desk": 1,
+        "has_ac": 1,
+        "has_tv": 0,
+        "has_shower": 1,
+        "has_fridge": 0,
+        "capacity": 2,
+        "price": 500000,
+        "name": "Standard Room",
+        "id": 2,
+        "has_wifi": 1,
+        "villa": 1,
+        "has_hotwater": 1
+    },
+    {
+        "bed_size": "king",
+        "quantity": 3,
+        "has_desk": 1,
+        "has_ac": 1,
+        "has_tv": 1,
+        "has_shower": 1,
+        "has_fridge": 1,
+        "capacity": 4,
+        "price": 1500000,
+        "name": "Ocean View Suite",
+        "id": 3,
+        "has_wifi": 1,
+        "villa": 2,
+        "has_hotwater": 1
+    },
+    {
+        "bed_size": "king",
+        "quantity": 4,
+        "has_desk": 1,
+        "has_ac": 1,
+        "has_tv": 1,
+        "has_shower": 1,
+        "has_fridge": 1,
+        "capacity": 5,
+        "price": 1300000,
+        "name": "Family Room",
+        "id": 4,
+        "has_wifi": 1,
+        "villa": 2,
+        "has_hotwater": 1
+    },
+    {
+        "bed_size": "queen",
+        "quantity": 6,
+        "has_desk": 1,
+        "has_ac": 0,
+        "has_tv": 0,
+        "has_shower": 1,
+        "has_fridge": 0,
+        "capacity": 2,
+        "price": 700000,
+        "name": "Pine Forest View",
+        "id": 5,
+        "has_wifi": 1,
+        "villa": 3,
+        "has_hotwater": 0
+    },
+    {
+        "bed_size": "king",
+        "quantity": 2,
+        "has_desk": 1,
+        "has_ac": 1,
+        "has_tv": 1,
+        "has_shower": 1,
+        "has_fridge": 1,
+        "capacity": 2,
+        "price": 2000000,
+        "name": "Smart Room",
+        "id": 6,
+        "has_wifi": 1,
+        "villa": 4,
+        "has_hotwater": 1
+    },
+    {
+        "bed_size": "queen",
+        "quantity": 8,
+        "has_desk": 1,
+        "has_ac": 0,
+        "has_tv": 0,
+        "has_shower": 1,
+        "has_fridge": 1,
+        "capacity": 3,
+        "price": 850000,
+        "name": "Nature Cabin",
+        "id": 7,
+        "has_wifi": 0,
+        "villa": 5,
+        "has_hotwater": 0
+    }
+]
+
+[
+    {
+        "end_date": "2025-06-30 23:59:59",
+        "code": "DISC10",
+        "description": "Diskon 10% semua kamar",
+        "discount": 0.1,
+        "id": 1,
+        "start_date": "2025-06-01 00:00:00"
+    },
+    {
+        "end_date": "2025-07-15 23:59:59",
+        "code": "SUMMER20",
+        "description": "Diskon 20% khusus musim panas",
+        "discount": 0.2,
+        "id": 2,
+        "start_date": "2025-06-15 00:00:00"
+    },
+    {
+        "end_date": "2025-06-25 23:59:59",
+        "code": "FLASH5",
+        "description": "Diskon flash 5%",
+        "discount": 0.05,
+        "id": 3,
+        "start_date": "2025-06-20 00:00:00"
+    },
+    {
+        "end_date": "2025-07-31 23:59:59",
+        "code": "KING30",
+        "description": "Diskon 30% untuk kamar king",
+        "discount": 0.3,
+        "id": 4,
+        "start_date": "2025-07-01 00:00:00"
+    }
+]
+
