@@ -14,6 +14,7 @@ Gede ALit Devriyana 2405551133
 
 # Menjalankan Kode Program
 
+
 # Request Postman
 Berikut adalah Tampilan Request dari Postman beserta Penjelasannya
 ## GET http://localhost:7000/villas
@@ -584,6 +585,7 @@ Berikut adalah Tampilan Request dari Postman beserta Penjelasannya
     }
 ]
 
+![WhatsApp Image 2025-07-04 at 16 11 48_c6caf636](https://github.com/user-attachments/assets/c6a9553e-e86b-474d-9d69-66a72ecd0a50)
 [
     {
         "end_date": "2025-06-30 23:59:59",
@@ -618,4 +620,14 @@ Berikut adalah Tampilan Request dari Postman beserta Penjelasannya
         "start_date": "2025-07-01 00:00:00"
     }
 ]
+
+![WhatsApp Image 2025-07-04 at 16 11 48_6d4169fc](https://github.com/user-attachments/assets/4067c742-d6a0-48f0-95b0-daba6f5278d3)
+
+
+![WhatsApp Image 2025-07-04 at 16 11 48_53c0614e](https://github.com/user-attachments/assets/ec37bd8b-9344-4515-8e12-91755b5beaa0)
+
+![WhatsApp Image 2025-07-04 at 16 11 48_6afe222b](https://github.com/user-attachments/assets/de34a478-6456-4e6d-94ae-d2418ec98f06)
+
+![WhatsApp Image 2025-07-04 at 16 11 48_4907930a](https://github.com/user-attachments/assets/9e084bf4-0af8-43f2-a917-20f0964c67d1)
+
 
