@@ -747,6 +747,8 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
 ![WhatsApp Image 2025-07-04 at 14 53 44](https://github.com/user-attachments/assets/e03f8126-6181-47bb-b4f6-3a1e93dc40b5)
 
 ## GET http://localhost:7000/vouchers
+Fungsi GET vouchers ini bertujuan untuk menampilkan ada berapa voucher yang terdaftar dalam database.
+
     {
         "end_date": "2025-06-30 23:59:59",
         "code": "DISC10",
@@ -782,6 +784,9 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
 ![WhatsApp Image 2025-07-04 at 15 05 47](https://github.com/user-attachments/assets/4fa2c990-a321-4356-89ac-91764bc98c9a)
 
 ### GET vouchers/id
+Fungsi GET vouchers/id ini bertujuan untuk menampilkan voucher yang terdaftar dalam database dan ditampilkan satu-persatu.
+
+#### 1. Voucher DISC10
     {
         "end_date": "2025-06-30 23:59:59",
         "code": "DISC10",
@@ -792,6 +797,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 16 11 48_6d4169fc](https://github.com/user-attachments/assets/4067c742-d6a0-48f0-95b0-daba6f5278d3)
 
+#### 2. Voucher SUMMER20
     {
         "end_date": "2025-07-15 23:59:59",
         "code": "SUMMER20",
@@ -802,6 +808,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 16 11 48_53c0614e](https://github.com/user-attachments/assets/ec37bd8b-9344-4515-8e12-91755b5beaa0)
 
+#### 3. Voucher FLASH5
     {
         "end_date": "2025-06-25 23:59:59",
         "code": "FLASH5",
@@ -812,6 +819,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 16 11 48_6afe222b](https://github.com/user-attachments/assets/de34a478-6456-4e6d-94ae-d2418ec98f06)
 
+#### 4. Voucher KING30
     {
         "end_date": "2025-07-31 23:59:59",
         "code": "KING30",
@@ -823,6 +831,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
 ![WhatsApp Image 2025-07-04 at 16 11 48_4907930a](https://github.com/user-attachments/assets/9e084bf4-0af8-43f2-a917-20f0964c67d1)
 
 ## GET http://localhost:7000/reviews
+Fungsi GET reviews ini bertujuan untuk menampilkan ada berapa reviewer yang terdaftar dalam database.
 
     {
         "booking": 1,
@@ -863,6 +872,9 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
 ![WhatsApp Image 2025-07-04 at 16 59 42](https://github.com/user-attachments/assets/d5676a2d-f879-45f3-8ef4-7ee2eeba2800)
 
 ### GET reviews/id bookings
+Fungsi GET reviews/id ini bertujuan untuk menampilkan reviewer yang terdaftar dalam database berdasarkan data bookingnya dan ditampilkan satu-persatu.
+
+#### 1. Review 1
     {
         "booking": 1,
         "star": 5,
@@ -871,6 +883,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 17 00 02](https://github.com/user-attachments/assets/7b07e961-e129-4fb7-a86d-840233ec065c)
 
+#### 2. Review 2
     {
         "booking": 2,
         "star": 4,
@@ -879,6 +892,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 17 00 23](https://github.com/user-attachments/assets/b44ff47b-e454-4502-b66c-bde1afcc878c)
 
+#### 3. Review 3
     {
         "booking": 4,
         "star": 5,
@@ -887,6 +901,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 17 01 14](https://github.com/user-attachments/assets/6be3abb5-d347-487c-b079-6c07fc7b13e8)
 
+#### 4. Review 4
     {
         "booking": 6,
         "star": 3,
@@ -895,6 +910,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 17 01 40](https://github.com/user-attachments/assets/10754753-fc6b-4658-87ce-5ba55280af98)
 
+#### 5. Review 5
     {
         "booking": 8,
         "star": 5,
@@ -903,6 +919,7 @@ Fungsi GET rooms/id ini bertujuan untuk menampilkan ruangan/kamar yang terdaftar
     }
 ![WhatsApp Image 2025-07-04 at 17 02 06](https://github.com/user-attachments/assets/940c08d5-be0a-4a66-96a8-e51c312b7a36)
 
+#### 6. Review 6
     {
         "booking": 9,
         "star": 2,
