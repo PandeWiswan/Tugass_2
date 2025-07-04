@@ -30,4 +30,36 @@ public class VillaService {
         dao.delete(id);
         return deleted;
     }
+
+    public List<Map<String, Object>> getRoomsByVillaId(int villaId) {
+        return dao.getRoomsByVillaId(villaId);
+    }
+
+    public List<Map<String, Object>> getBookingsByVillaId(int villaId) {
+        return dao.getBookingsByVillaId(villaId);
+    }
+
+    public List<Map<String, Object>> getReviewsByVillaId(int villaId) {
+        return dao.getReviewsByVillaId(villaId);
+    }
+
+    public List<Map<String, Object>> searchAvailability(String checkinDate, String checkoutDate) {
+        return dao.searchAvailability(checkinDate, checkoutDate);
+    }
+
+    public Map<String, Object> createRoomForVilla(int villaId, Map<String, Object> data) {
+        dao.createRoomForVilla(villaId, data);
+        return data;
+    }
+
+    public Map<String, Object> updateRoomInVilla(int villaId, int roomId, Map<String, Object> data) {
+        dao.updateRoomInVilla(villaId, roomId, data);
+        return dao.getRoomById(roomId);
+    }
+
+    public Map<String, Object> deleteRoomFromVilla(int villaId, int roomId) {
+        Map<String, Object> deleted = dao.getRoomById(roomId);
+        dao.deleteRoomFromVilla(villaId, roomId);
+        return deleted;
+    }
 }
